@@ -458,6 +458,7 @@ class TaskManager(BaseManager):
             if self.task_config["tools_config"]["llm_agent"]["provider"] in SUPPORTED_LLM_PROVIDERS.keys():
                 llm_class = SUPPORTED_LLM_PROVIDERS.get(self.task_config["tools_config"]["llm_agent"]["provider"])
                 logger.info(f"LLM CONFIG {llm_config}")
+                logger.info(f'LLM Class {llm_class}')
                 llm = llm_class(**llm_config, **self.kwargs)
                 return llm
             else:
